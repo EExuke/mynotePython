@@ -26,5 +26,22 @@ class Settings():
         self.bg_color = (0, 0, 0)
 
         # 飞船的设置
-        self.ship_speed_factor = 6.5
+        self.ship_speed_factor = 16.5
+        self.ships_limit = 3
+
+        # 子弹设置
+        self.bullet_speed_factor = 26.5
+        self.bullet_width = 50
+        self.bullet_height = 20
+        self.bullet_color = (255, 125, 0)
+        self.bullets_allowed = 10
+        self.bullet_interval = 3
+
+        # 计时器设置
+        self.timer = 0
+
+        # 外星人设置
+        self.alien_speed_factor = 20
+        self.fleet_drop_speed = 64
+        self.fleet_direction = 1
 

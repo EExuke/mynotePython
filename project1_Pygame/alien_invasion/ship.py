@@ -14,6 +14,7 @@
 
 import pygame
 
+
 #-----------------------------------------------------------
 #                  管理飞船行为的类
 #-----------------------------------------------------------
@@ -25,7 +26,7 @@ class Ship():
         self.ai_settings = ai_settings
 
         # 加载飞船图像并获取其外接矩形
-        self.image = pygame.image.load('images/ship_1.bmp')
+        self.image = pygame.image.load('images/ship_1.png')
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 
@@ -39,6 +40,7 @@ class Ship():
         # 移动标志
         self.moving_right = False
         self.moving_left = False
+        self.fire = False
 
     def update(self):
         """根据移动标志调整飞船的位置"""
@@ -48,6 +50,10 @@ class Ship():
             self.center -= self.ai_settings.ship_speed_factor
         # 再根据center更新rect对象
         self.rect.centerx = self.center
+
+    def center_ship(self):
+        """让飞船居中到初始位置"""
+        self.center = self.screen_rect.centerx
 
     def blitme(self):
         """在指定位置绘制飞船"""
