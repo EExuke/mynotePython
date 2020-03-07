@@ -7,7 +7,7 @@ https://www.pygame.org/download.shtml
 pygame.examples
 
 示例程序的模块
-pygame.examples.aliens.main - 玩完整的外星人示例
+pygame.examples.aliens.main - 完整的外星人示例
 pygame.examples.oldalien.main - 玩原始外星人的例子
 pygame.examples.stars.main - 运行一个简单的星空示例
 pygame.examples.chimp.main - 击中移动的黑猩猩

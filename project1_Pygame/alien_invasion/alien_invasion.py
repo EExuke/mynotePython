@@ -23,6 +23,7 @@ from bullet import Bullet
 from alien import Alien
 from game_stats import GameStats
 from button import Button
+from scoreboard import Scoreboard
 
 #-----------------------------------------------------------
 #                  启动游戏主程序
@@ -39,6 +40,7 @@ def run_game():
 
     # 创建一个用于存储游戏统计信息的实例
     stats = GameStats(ai_settings)
+    sb = Scoreboard(ai_settings, screen, stats)
 
     # 创建一艘飞船、背景图
     ship = Ship(screen, ai_settings)
@@ -53,18 +55,18 @@ def run_game():
     # 开始游戏主循环
     while True:
         # 等待按下开始按钮
-        gf.check_events(ai_settings, screen, ship, aliens, bullets, stats, play_button)
+        gf.check_events(ai_settings, screen, ship, aliens, bullets, stats, play_button, sb)
         # 开始游戏，并计时
         ai_settings.timer += 1
         if stats.game_active:
             # 更新飞船控制结果
             ship.update()
             # 更新子弹状态
-            gf.update_bullets(aliens, bullets, ai_settings, screen, ship)
+            gf.update_bullets(aliens, bullets, ai_settings, screen, ship, stats, sb)
             # 更新外星人位置，在子弹之后方便检测是否击中
-            gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
+            gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets, sb)
         # 更新屏幕
-        gf.update_screen(ai_settings, screen, ship, sky, aliens, bullets, stats, play_button)
+        gf.update_screen(ai_settings, screen, ship, sky, aliens, bullets, stats, play_button, sb)
 
 
 # 启动游戏

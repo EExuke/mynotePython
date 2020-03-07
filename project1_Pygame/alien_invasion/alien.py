@@ -51,11 +51,13 @@ class Alien(Sprite):
         if self.rect.top >= screen_rect.bottom:
             self.rect.y = 0
         elif self.rect.right >= screen_rect.right:
-            self.rect.x = screen_rect.right - self.ai_settings.alien_speed_factor
+            self.rect.x = screen_rect.right
             return True
         elif self.rect.left <= 0:
-            self.rect.x = self.ai_settings.alien_speed_factor
+            self.rect.x = 0
             return True
+        else:
+            return False
 
     def update(self):
         """移动外星人的位置"""

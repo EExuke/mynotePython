@@ -21,11 +21,14 @@ class GameStats():
         """初始化统计信息"""
         self.ai_settings = ai_settings
         self.reset_stats()
-
+        # 最高分
+        self.high_score = 0
         # 游戏刚开始时处于非活跃状态
         self.game_active = False
 
     def reset_stats(self):
         """初始化游戏运行期间变化的统计信息"""
         self.ships_left = self.ai_settings.ships_limit
+        self.score = 0
+        self.level = 1
 

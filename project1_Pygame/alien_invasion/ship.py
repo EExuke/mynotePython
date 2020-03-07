@@ -13,15 +13,16 @@
 ## ************************************************************************** ##
 
 import pygame
-
+from pygame.sprite import Sprite
 
 #-----------------------------------------------------------
 #                  管理飞船行为的类
 #-----------------------------------------------------------
-class Ship():
+class Ship(Sprite):
 
     def __init__(self, screen, ai_settings):
         """初始化飞船并设置其初始位置"""
+        super(Ship, self).__init__()
         self.screen = screen
         self.ai_settings = ai_settings
 
